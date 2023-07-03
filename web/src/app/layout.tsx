@@ -1,9 +1,18 @@
 import { ReactNode } from 'react'
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { Poppins, Bebas_Neue as BebasNeue } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
-
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['300', '400', '600', '800'],
+  variable: '--font-poppins',
+})
+const bebasNeue = BebasNeue({
+  subsets: ['latin'],
+  weight: '400',
+  style: 'normal',
+  variable: '--font-bebas-neue',
+})
 export const metadata = {
   title: 'Elevate Fashion',
   description:
@@ -12,8 +21,12 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="pt-br">
+      <body
+        className={`${poppins.variable} ${bebasNeue.variable} font-poppins`}
+      >
+        {children}
+      </body>
     </html>
   )
 }
